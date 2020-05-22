@@ -7,8 +7,8 @@
 
    Shopping Cart Form Script
    
-   Author: 
-   Date:   
+   Author: Jorge Collazo
+   Date:   5-18-20
    
    Filename: co_cart.js
    
@@ -28,10 +28,21 @@
    
 */ 
 
+window.onload.addEventListener("onchange", calcCart);
+for(var i = 0; i < calcCart.length; i++){
+   document.addEventListener("onclick", calcCart)
+}
 
 
-
-
+function calcCart(){
+   var orderCost = document.getElementById("modelCost") * document.getElementById("modelQty");
+   orderCost.value = formatUSCurrency(249.95);
+   var shipCost = document.getElementById("shipingCost").formatNumber(1000, 2);
+   document.getElementById("subTotal") = orderCost + shipCost.formatNumber(1000, 2);
+   var salesTax = (orderCost.value + shipCost.value) * 0.05;
+   salesTax.value = document.getElementById("salesTax");
+   document.getElementById("cartTotal") = orderCost.value + shipCost.value + salesTax.value
+}
 
 
 

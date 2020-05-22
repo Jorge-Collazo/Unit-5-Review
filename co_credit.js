@@ -7,8 +7,8 @@
 
    Credit Card Form Script
    
-   Author: 
-   Date:   
+   Author: Jorge Collazo
+   Date:   5-18-20
    
    Filename: co_credit.js
    
@@ -44,10 +44,43 @@
 
 */
 
+window.addEventListener("load", function(){
+   var orderData = slice("?").replace("+");
+   document.forms.order.elements.modelName = orderFields[3]
+   document.forms.order.elements.modelQty = orderFields[5]
+   document.forms.order.elements.orderCost = orderFields[7]
+   document.forms.order.elements.shippingType = orderFields[9]
+   document.forms.order.elements.shippingCost = orderFields[13]
+   document.forms.order.elements.subTotal = orderFields[15]
+   document.forms.order.elements.subTax = orderFields[17]
+   document.forms.order.elements.cartTotal = orderFields[19]
+})
 
+window.onload.addEventListener("load", function(){
+   document.getElementById("subButton").onclick = runSubmit();
+   document.getElementById("cardHolder").oninput = validateName();
+   document.getElementById("cardNuber").oninput = validateNumber();
+   document.getElementById("expDate").oninput = validateDate();
+   document.getElementById("cvc").oninput = validateCVC();
+});
 
+function runSubmit(){
+   validateName();
+   validateCredit();
+   validateNumber();
+   validateDate();
+   validateCVC();
+}
 
-
+function validateDate(){d
+   if(document.getElementById("expDate") === ""){
+      "enter the expiration date"
+   }else if(document.getElementById("expDate") !== /^(0[1-9]|1[0-2])\/20[12]\d$/){
+      "Enter a valid expiration date"
+   }else if(document.getElementById("expDate") ===  /^(0[1-9]|1[0-2])\/20[12]\d$/){
+      ""
+   }
+}
 
 
 
